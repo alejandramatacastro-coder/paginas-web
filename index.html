@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Páginas web para negocios de limpieza · Ale</title>
+<meta name="description" content="Páginas web para negocios hispanos de limpieza y servicios en EE. UU. Te enseño tu página hecha antes de que pagues.">
+<meta property="og:title" content="Páginas web para negocios de limpieza">
+<meta property="og:description" content="Te enseño tu página hecha antes de que pagues. Precios en dólares, atención en español.">
+<script>
+/* ===== CAMBIA AQUÍ TUS DATOS ===== */
+const ALE = {
+  whatsapp: "524772406249",          // tu WhatsApp con código de país, solo números
+  whatsappVisible: "+52 477 240 6249",
+  lugaresCasoEstudio: 3              // cuántos lugares quedan al precio de caso de estudio
+};
+</script>
+<style>
+  :root{--brand:#0B7A75;--brand-dk:#075652;--accent:#FFC93C;--ink:#14211F;--muted:#5B6B68;--bg:#FFFFFF;--soft:#F2F7F6;--line:#DDE7E5;--radius:18px}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{line-height:1.15;margin:0}
+  h2{font-size:clamp(1.5rem,4.5vw,2.1rem);letter-spacing:-.01em}
+  section{padding:56px 0}
+  .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+  .head{margin-bottom:28px}.head p{color:var(--muted);margin:8px 0 0;max-width:56ch}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 22px;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer}
+  .btn-primary{background:var(--accent);color:#1A1A1A}
+  .btn-dark{background:var(--brand);color:#fff}
+  .btn-wa{background:#25D366;color:#073B1E}
+  .btn svg{width:20px;height:20px}
+
+  .hero{color:#fff;padding:64px 0 70px;background:radial-gradient(800px 380px at 90% -10%,rgba(255,255,255,.16),transparent 60%),linear-gradient(160deg,var(--brand),var(--brand-dk))}
+  .hero h1{font-size:clamp(2rem,6.5vw,3.2rem);letter-spacing:-.02em;max-width:18ch}
+  .hero p{font-size:clamp(1.05rem,3vw,1.2rem);opacity:.92;max-width:44ch;margin:16px 0 26px}
+  .promise{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.88rem;margin-bottom:18px}
+
+  .plans{display:grid;gap:18px}
+  @media(min-width:760px){.plans{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1040px){.plans{grid-template-columns:1.15fr 1fr 1fr}}
+  .plan{position:relative;border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:#fff;display:flex;flex-direction:column}
+  .plan.top{border:2px solid var(--brand);box-shadow:0 14px 34px rgba(11,122,117,.14)}
+  .badge{position:absolute;top:-12px;left:22px;background:var(--brand);color:#fff;font-size:.75rem;font-weight:800;letter-spacing:.04em;padding:5px 12px;border-radius:999px;text-transform:uppercase}
+  .plan h3{font-size:1.25rem}
+  .plan .for{color:var(--muted);font-size:.92rem;margin:6px 0 14px}
+  .price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .price .now{font-size:2.2rem;font-weight:800;letter-spacing:-.02em}
+  .price .was{color:var(--muted);text-decoration:line-through;font-weight:600}
+  .price-note{font-size:.85rem;color:var(--brand);font-weight:700;margin:2px 0 14px}
+  .plan ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:8px;font-size:.95rem}
+  .plan li{display:flex;gap:9px;align-items:flex-start}
+  .plan li svg{flex:none;width:18px;height:18px;color:var(--brand);margin-top:3px}
+  .plan .pay{font-size:.85rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+  .plan .btn{margin-top:14px;width:100%}
+
+  .extras{display:grid;gap:14px;margin-top:22px}
+  @media(min-width:760px){.extras{grid-template-columns:1fr 1fr}}
+  .extra{background:var(--soft);border-radius:var(--radius);padding:20px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+  .extra h3{font-size:1.05rem}.extra p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+  .extra .p{font-weight:800;font-size:1.25rem;white-space:nowrap}
+
+  .soft{background:var(--soft)}
+  .steps{display:grid;gap:16px}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .step b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;margin-bottom:10px}
+  .step p{margin:4px 0 0;color:var(--muted);font-size:.93rem}
+
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+  th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:center}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:var(--soft);font-size:.85rem}
+  td.y{color:var(--brand);font-weight:800}td.n{color:#B8C4C2}
+
+  details{border:1px solid var(--line);border-radius:14px;padding:14px 18px;background:#fff;margin-bottom:10px}
+  summary{font-weight:700;cursor:pointer}
+  details p{color:var(--muted);margin:10px 0 0}
+
+  .cta{text-align:center;color:#fff;background:linear-gradient(160deg,var(--brand),var(--brand-dk))}
+  .cta p{opacity:.9;margin:10px auto 22px;max-width:46ch}
+  footer{background:#0F1A19;color:#C9D6D4;padding:26px 0 96px;font-size:.88rem;text-align:center}
+  @media(min-width:760px){footer{padding-bottom:26px}}
+  .float{position:fixed;left:12px;right:12px;bottom:12px;z-index:30}
+  .float .btn{width:100%;box-shadow:0 10px 26px rgba(0,0,0,.2)}
+  @media(min-width:760px){.float{left:auto;right:20px;bottom:20px}.float .btn{width:auto}}
+</style>
+</head>
+<body>
+
+<section class="hero"><div class="wrap">
+  <span class="promise">Te enseño tu página hecha antes de que pagues</span>
+  <h1>Páginas web para negocios hispanos de limpieza en EE. UU.</h1>
+  <p>Para que tus clientes vean tus trabajos, sepan dónde atiendes y te pidan cotización desde el celular. Atención en español, precios en dólares.</p>
+  <a class="btn btn-primary" href="#paquetes">Ver paquetes y precios</a>
+</div></section>
+
+<section id="paquetes"><div class="wrap">
+  <div class="head"><div class="eyebrow">Paquetes</div><h2>Elige cómo quieres crecer</h2>
+    <p>Precio de caso de estudio: solo para <b id="lugares">3</b> negocios este mes, a cambio de un testimonio en video y permiso para mostrar tu página como ejemplo.</p></div>
+
+  <div class="plans">
+    <article class="plan top">
+      <span class="badge">Más completo</span>
+      <h3>Paquete Profesional</h3>
+      <p class="for">Para negocios que ya tienen buenas reseñas y quieren verse como empresa establecida.</p>
+      <div class="price"><span class="now">USD 800</span><span class="was">USD 1,200</span></div>
+      <div class="price-note">Precio caso de estudio</div>
+      <ul>
+        <li>__CHK__Página de hasta 5 secciones: inicio, servicios, trabajos, zonas y cotización</li>
+        <li>__CHK__En español e inglés, con botón para cambiar de idioma</li>
+        <li>__CHK__Galería de antes y después con tus fotos</li>
+        <li>__CHK__Formulario de cotización que llega a tu correo</li>
+        <li>__CHK__Botones de llamar y WhatsApp siempre visibles en el celular</li>
+        <li>__CHK__Tu propio dominio (tunegocio.com) conectado</li>
+        <li>__CHK__<span><b>Incluye Google Maps Pro</b>: perfil optimizado y sistema para pedir reseñas</span></li>
+        <li>__CHK__Alojamiento por 12 meses</li>
+        <li>__CHK__Código QR para tarjetas, camioneta y volantes</li>
+        <li>__CHK__Video para cambiar textos y fotos tú misma(o)</li>
+        <li>__CHK__3 rondas de cambios · entrega en 7 días hábiles</li>
+      </ul>
+      <div class="pay">Apartas con <b>USD 400</b>. El resto (USD 400) lo pagas al aprobar la versión final, antes de publicar.</div>
+      <a class="btn btn-dark js-wa" data-msg="Hola Ale, me interesa el Paquete Profesional" href="#">Quiero el Profesional</a>
+    </article>
+
+    <article class="plan">
+      <h3>Página de Cotizaciones</h3>
+      <p class="for">Para tener presencia profesional rápido y empezar a recibir solicitudes.</p>
+      <div class="price"><span class="now">USD 497</span><span class="was">USD 997</span></div>
+      <div class="price-note">Precio caso de estudio</div>
+      <ul>
+        <li>__CHK__Página de 1 a 3 secciones</li>
+        <li>__CHK__En español, inglés o los dos</li>
+        <li>__CHK__Galería con tus fotos</li>
+        <li>__CHK__Formulario de cotización a tu correo</li>
+        <li>__CHK__Botones de llamar y WhatsApp</li>
+        <li>__CHK__Alojamiento por 12 meses</li>
+        <li>__CHK__Código QR y video tutorial</li>
+        <li>__CHK__2 rondas de cambios · entrega en 5 días hábiles</li>
+      </ul>
+      <div class="pay">Apartas con <b>USD 250</b>. El resto (USD 247) al aprobar la versión final.</div>
+      <a class="btn btn-dark js-wa" data-msg="Hola Ale, me interesa la Página de Cotizaciones" href="#">Quiero esta</a>
+    </article>
+
+    <article class="plan">
+      <h3>Google Maps Pro</h3>
+      <p class="for">Para que te encuentren y te elijan cuando buscan limpieza en tu zona.</p>
+      <div class="price"><span class="now">USD 197</span><span class="was">USD 297</span></div>
+      <div class="price-note">Precio caso de estudio</div>
+      <ul>
+        <li>__CHK__Revisión y corrección de tu perfil de Google (nombre, categorías, horarios)</li>
+        <li>__CHK__Servicios y zonas de atención bien escritos</li>
+        <li>__CHK__Fotos ordenadas y con descripción</li>
+        <li>__CHK__Enlace directo para que tus clientes te dejen reseña</li>
+        <li>__CHK__Mensaje listo para pedir reseñas por WhatsApp</li>
+        <li>__CHK__Entrega en 3 días hábiles</li>
+      </ul>
+      <div class="pay">Pagas el 50 % al empezar y el 50 % al entregar. No se garantizan posiciones en Google.</div>
+      <a class="btn btn-dark js-wa" data-msg="Hola Ale, me interesa Google Maps Pro" href="#">Quiero Google Maps Pro</a>
+    </article>
+  </div>
+
+  <div class="extras">
+    <div class="extra"><div><h3>Mantenimiento mensual</h3><p>Cambios de fotos y textos (hasta 30 min al mes), alojamiento después del primer año y revisión de que el formulario funcione.</p></div><div class="p">USD 49/mes</div></div>
+    <div class="extra"><div><h3>Dominio propio</h3><p>tunegocio.com, siempre a tu nombre. Lo pagas directo al proveedor; yo te ayudo a comprarlo y conectarlo.</p></div><div class="p">≈ USD 15/año</div></div>
+  </div>
+</div></section>
+
+<section class="soft"><div class="wrap">
+  <div class="head"><div class="eyebrow">Compara</div><h2>¿Qué incluye cada paquete?</h2></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th></th><th>Profesional</th><th>Cotizaciones</th><th>Google Maps Pro</th></tr></thead>
+    <tbody>
+      <tr><td>Secciones de la página</td><td class="y">Hasta 5</td><td class="y">1 a 3</td><td class="n">—</td></tr>
+      <tr><td>Español e inglés</td><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+      <tr><td>Formulario de cotización</td><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+      <tr><td>Botones de llamar y WhatsApp</td><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+      <tr><td>Dominio propio conectado</td><td class="y">✓</td><td class="n">Opcional</td><td class="n">—</td></tr>
+      <tr><td>Perfil de Google optimizado</td><td class="y">✓</td><td class="n">—</td><td class="y">✓</td></tr>
+      <tr><td>Sistema para pedir reseñas</td><td class="y">✓</td><td class="n">—</td><td class="y">✓</td></tr>
+      <tr><td>Rondas de cambios</td><td class="y">3</td><td class="y">2</td><td class="y">1</td></tr>
+      <tr><td>Entrega</td><td class="y">7 días</td><td class="y">5 días</td><td class="y">3 días</td></tr>
+      <tr><td><b>Precio caso de estudio</b></td><td class="y">USD 800</td><td class="y">USD 497</td><td class="y">USD 197</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head"><div class="eyebrow">Cómo trabajamos</div><h2>Sin riesgo para ti</h2></div>
+  <div class="steps">
+    <div class="step"><b>1</b><h3>Ves tu muestra</h3><p>Te preparo una muestra con el nombre de tu negocio. Si no te gusta, no pagas nada.</p></div>
+    <div class="step"><b>2</b><h3>Apartas tu lugar</h3><p>Con un pago parcial por PayPal o transferencia, y me mandas tus fotos y datos.</p></div>
+    <div class="step"><b>3</b><h3>Revisas y apruebas</h3><p>Te enseño la versión final y hacemos los cambios incluidos.</p></div>
+    <div class="step"><b>4</b><h3>Se publica</h3><p>Pagas el resto, se publica y te enseño a actualizarla.</p></div>
+  </div>
+</div></section>
+
+<section class="soft"><div class="wrap">
+  <div class="head"><div class="eyebrow">Preguntas frecuentes</div><h2>Lo que más me preguntan</h2></div>
+  <details><summary>¿La página queda a mi nombre?</summary><p>Sí. El dominio se compra a tu nombre y los textos y fotos son tuyos.</p></details>
+  <details><summary>¿Cómo pago?</summary><p>Por PayPal, Wise o transferencia en dólares. Siempre en dos partes: un apartado y el resto al aprobar.</p></details>
+  <details><summary>¿Me garantizas más clientes o salir primero en Google?</summary><p>No. Nadie puede garantizar eso con honestidad. Lo que sí te garantizo es una página profesional, rápida en el celular y con formas fáciles de contactarte.</p></details>
+  <details><summary>¿Qué necesito darte?</summary><p>Tu logo (si tienes), de 8 a 15 fotos de trabajos, tus servicios, las ciudades donde atiendes, tu teléfono y tu correo.</p></details>
+  <details><summary>¿Qué es el precio de caso de estudio?</summary><p>Un precio especial para pocos negocios este mes. A cambio me das un testimonio corto en video y me dejas mostrar tu página como ejemplo.</p></details>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2>¿Quieres ver tu muestra?</h2>
+  <p>Escríbeme el nombre de tu negocio y tu ciudad. Te la preparo sin compromiso.</p>
+  <a class="btn btn-wa js-wa" data-msg="Hola Ale, quiero ver la muestra de mi página" href="#">__WA__Escribirme por WhatsApp</a>
+</div></section>
+
+<footer><div class="wrap">Ale · Páginas web para negocios hispanos en EE. UU. · <span id="wa-visible"></span></div></footer>
+<div class="float"><a class="btn btn-wa js-wa" data-msg="Hola Ale, quiero información de las páginas web" href="#">__WA__WhatsApp</a></div>
+
+<script>
+(function(){
+  const CHK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+  const WA='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
+  document.body.innerHTML=document.body.innerHTML.split('__CHK__').join(CHK).split('__WA__').join(WA);
+  document.getElementById('lugares').textContent=ALE.lugaresCasoEstudio;
+  document.getElementById('wa-visible').textContent='WhatsApp '+ALE.whatsappVisible;
+  document.querySelectorAll('.js-wa').forEach(a=>{a.href='https://wa.me/'+ALE.whatsapp+'?text='+encodeURIComponent(a.dataset.msg);a.target='_blank';a.rel='noopener'});
+})();
+</script>
+</body>
+</html>

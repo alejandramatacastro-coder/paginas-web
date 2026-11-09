@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limpieza — Demostración</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Muestra de página web preparada para tu negocio de limpieza.">
+<meta property="og:title" content="Muestra de tu página web">
+<meta property="og:description" content="Así se vería la página de tu negocio de limpieza. Ábrela desde el celular.">
+<!--
+  ============================================================
+  PLANTILLA DEMO · GIRO: LIMPIEZA
+  Para personalizarla para un negocio, cambia SOLO el bloque
+  "NEGOCIO" de abajo (nombre, ciudad, teléfono, colores, servicios,
+  zonas, fotos). Todo lo demás se acomoda solo.
+  - modoDemo: true  → muestra la franja "DEMOSTRACIÓN" y el formulario no envía nada.
+  - modoDemo: false + formulario: "https://formspree.io/f/XXXX" → versión real.
+  ============================================================
+-->
+<script>
+const NEGOCIO = {
+  modoDemo: true,
+  nombre: "Brillo Total Cleaning",
+  ciudad: "Houston, TX",
+  telefono: "+17135550147",            // para el botón de llamar
+  telefonoVisible: "(713) 555-0147",
+  whatsapp: "17135550147",             // solo números, con 1 al inicio
+  correo: "hola@brillototal.com",
+  horario: { es: "Lunes a sábado · 8 am a 6 pm", en: "Mon–Sat · 8 am to 6 pm" },
+  aniosExperiencia: 8,                 // pon 0 para ocultarlo
+  aseguradoYConLicencia: true,         // pon false si el negocio NO lo tiene
+  colorPrincipal: "#0B7A75",
+  colorAcento: "#FFC93C",
+  servicios: [
+    { icono: "casa",     es: ["Limpieza de casas", "Limpieza regular semanal, quincenal o mensual. Cocina, baños, pisos y polvo."],
+                         en: ["House cleaning", "Weekly, bi-weekly or monthly cleaning. Kitchen, bathrooms, floors and dusting."] },
+    { icono: "brillo",   es: ["Limpieza profunda", "Detrás de muebles, dentro del horno y refrigerador, zoclos y ventanas."],
+                         en: ["Deep cleaning", "Behind furniture, inside oven and fridge, baseboards and windows."] },
+    { icono: "caja",     es: ["Mudanzas", "Dejamos la casa lista para entregar o para estrenar. Move-in / move-out."],
+                         en: ["Move-in / move-out", "We get the home ready to hand over or to move into."] },
+    { icono: "edificio", es: ["Oficinas y locales", "Limpieza comercial en el horario que no estorbe a tu negocio."],
+                         en: ["Offices & commercial", "Commercial cleaning on a schedule that works for your business."] }
+  ],
+  zonas: ["Houston", "Katy", "Sugar Land", "Pasadena", "Pearland", "Spring", "Cypress", "Humble"],
+  // Fotos reales del negocio (rutas o enlaces). Si está vacío, salen recuadros de ejemplo.
+  fotos: [],
+  formulario: ""                       // enlace de Formspree para la versión real
+};
+</script>
+<script>
+/* Datos de cada prospecto. Enlace: demo/?p=<clave> */
+const PROSPECTOS = {
+ "amparos": {
+  "nombre": "Amparo's Cleaning Services",
+  "ciudad": "Katy, TX",
+  "telefono": "+13462446818",
+  "telefonoVisible": "+1 346-244-6818",
+  "whatsapp": "13462446818",
+  "correo": "",
+  "zonas": [
+   "Katy",
+   "Cinco Ranch",
+   "Fulshear",
+   "Cypress",
+   "Sugar Land",
+   "Richmond",
+   "West Houston"
+  ],
+  "colorPrincipal": "#7A3E9D",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "green": {
+  "nombre": "Green Cleaning Services Miami",
+  "ciudad": "Miami, FL",
+  "telefono": "+13059741220",
+  "telefonoVisible": "+1 305-974-1220",
+  "whatsapp": "13059741220",
+  "correo": "",
+  "zonas": [
+   "Miami",
+   "Brickell",
+   "Coral Gables",
+   "Coconut Grove",
+   "Miami Beach",
+   "Doral",
+   "Kendall"
+  ],
+  "colorPrincipal": "#2E8B57",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "gamez": {
+  "nombre": "Cleaning Services Gamez",
+  "ciudad": "Houston, TX",
+  "telefono": "+18324938034",
+  "telefonoVisible": "+1 832-493-8034",
+  "whatsapp": "18324938034",
+  "correo": "",
+  "zonas": [
+   "Sugar Land",
+   "Missouri City",
+   "Stafford",
+   "Bellaire",
+   "Meyerland",
+   "Alief",
+   "Southwest Houston"
+  ],
+  "colorPrincipal": "#0B6FA4",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "ec": {
+  "nombre": "EC Cleaning",
+  "ciudad": "Weston, FL",
+  "telefono": "+19546551404",
+  "telefonoVisible": "+1 954-655-1404",
+  "whatsapp": "19546551404",
+  "correo": "",
+  "zonas": [
+   "Weston",
+   "Davie",
+   "Pembroke Pines",
+   "Plantation",
+   "Sunrise",
+   "Southwest Ranches",
+   "Miramar"
+  ],
+  "colorPrincipal": "#1F5F8B",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "veciclean": {
+  "nombre": "Veciclean Services",
+  "ciudad": "Doral, FL",
+  "telefono": "",
+  "telefonoVisible": "",
+  "whatsapp": "",
+  "correo": "",
+  "zonas": [
+   "Doral",
+   "Miami Lakes",
+   "Medley",
+   "Sweetwater",
+   "Kendall",
+   "Fontainebleau"
+  ],
+  "colorPrincipal": "#C2185B",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "cruzeta": {
+  "nombre": "Cruzeta Services",
+  "ciudad": "Hialeah, FL",
+  "telefono": "+17869311575",
+  "telefonoVisible": "+1 786-931-1575",
+  "whatsapp": "17869311575",
+  "correo": "",
+  "zonas": [
+   "Hialeah",
+   "Miami Lakes",
+   "Doral",
+   "Miami Springs",
+   "Hialeah Gardens",
+   "Miami"
+  ],
+  "colorPrincipal": "#00796B",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "mary": {
+  "nombre": "Mary Cleaner House",
+  "ciudad": "Hialeah, FL",
+  "telefono": "+17862627586",
+  "telefonoVisible": "+1 786-262-7586",
+  "whatsapp": "17862627586",
+  "correo": "",
+  "zonas": [
+   "Hialeah",
+   "Miami Lakes",
+   "Doral",
+   "Miami Springs",
+   "Hialeah Gardens"
+  ],
+  "colorPrincipal": "#AD1457",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "lincar": {
+  "nombre": "Lincar Solutions",
+  "ciudad": "Doral, FL",
+  "telefono": "+17867570353",
+  "telefonoVisible": "+1 786-757-0353",
+  "whatsapp": "17867570353",
+  "correo": "",
+  "zonas": [
+   "Doral",
+   "Miami",
+   "Miami Lakes",
+   "Kendall",
+   "Sweetwater"
+  ],
+  "colorPrincipal": "#5D4037",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "soler": {
+  "nombre": "Soler Solutions",
+  "ciudad": "Doral, FL",
+  "telefono": "+17868960951",
+  "telefonoVisible": "+1 786-896-0951",
+  "whatsapp": "17868960951",
+  "correo": "",
+  "zonas": [
+   "Doral",
+   "Miami",
+   "Miami Lakes",
+   "Kendall"
+  ],
+  "colorPrincipal": "#283593",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "maly": {
+  "nombre": "Maly Cleaning Services",
+  "ciudad": "Houston, TX",
+  "telefono": "+12818648520",
+  "telefonoVisible": "+1 281-864-8520",
+  "whatsapp": "12818648520",
+  "correo": "",
+  "zonas": [
+   "Houston",
+   "The Woodlands",
+   "Spring",
+   "Humble",
+   "Kingwood",
+   "Aldine"
+  ],
+  "colorPrincipal": "#6A1B9A",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "noe": {
+  "nombre": "Noe Cerella Cleaning Services",
+  "ciudad": "Houston, TX",
+  "telefono": "+18328019463",
+  "telefonoVisible": "+1 832-801-9463",
+  "whatsapp": "18328019463",
+  "correo": "",
+  "zonas": [
+   "Houston",
+   "Pasadena",
+   "Baytown",
+   "Channelview",
+   "Galena Park"
+  ],
+  "colorPrincipal": "#00838F",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "esmeralda": {
+  "nombre": "Esmeralda's Cleaning Services",
+  "ciudad": "Houston, TX",
+  "telefono": "+18328764526",
+  "telefonoVisible": "+1 832-876-4526",
+  "whatsapp": "18328764526",
+  "correo": "",
+  "zonas": [
+   "Bellaire",
+   "West University",
+   "Meyerland",
+   "Gulfton",
+   "Galleria"
+  ],
+  "colorPrincipal": "#2E7D32",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "imperio": {
+  "nombre": "Imperio Carpet Cleaning",
+  "ciudad": "Houston, TX",
+  "telefono": "+18327716112",
+  "telefonoVisible": "+1 832-771-6112",
+  "whatsapp": "18327716112",
+  "correo": "",
+  "zonas": [
+   "Houston",
+   "Cypress",
+   "Jersey Village",
+   "Spring",
+   "Katy"
+  ],
+  "colorPrincipal": "#BF360C",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "casalimpia": {
+  "nombre": "Casa Limpia Miami",
+  "ciudad": "Miami, FL",
+  "telefono": "+17867865038",
+  "telefonoVisible": "+1 786-786-5038",
+  "whatsapp": "17867865038",
+  "correo": "",
+  "zonas": [
+   "Miami",
+   "Coral Gables",
+   "Kendall",
+   "Westchester",
+   "Doral"
+  ],
+  "colorPrincipal": "#E65100",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ },
+ "yanira": {
+  "nombre": "Yanira's Cleaning Services",
+  "ciudad": "Houston, TX",
+  "telefono": "+17135055790",
+  "telefonoVisible": "+1 713-505-5790",
+  "whatsapp": "17135055790",
+  "correo": "",
+  "zonas": [
+   "Houston",
+   "Cypress",
+   "Jersey Village",
+   "Spring Branch"
+  ],
+  "colorPrincipal": "#4527A0",
+  "horario": {
+   "es": "Escríbenos para agendar tu limpieza",
+   "en": "Message us to book your cleaning"
+  },
+  "aniosExperiencia": 0,
+  "aseguradoYConLicencia": false,
+  "modoDemo": true
+ }
+};
+(function(){var k=new URLSearchParams(location.search).get('p');if(k&&PROSPECTOS[k])Object.assign(NEGOCIO,PROSPECTOS[k]);})();
+</script>
+<style>
+  :root{
+    --brand:#0B7A75; --accent:#FFC93C;
+    --ink:#14211F; --muted:#5B6B68; --bg:#FFFFFF; --soft:#F2F7F6; --line:#DDE7E5;
+    --card:#FFFFFF; --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{line-height:1.15;margin:0}
+  h2{font-size:clamp(1.5rem,4.5vw,2.1rem);letter-spacing:-.01em}
+  .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+  section{padding:56px 0}
+
+  /* Franja demo */
+  .demo-bar{background:#1E1E1E;color:#fff;font-size:.82rem;text-align:center;padding:7px 12px}
+  .demo-bar b{color:var(--accent)}
+
+  /* Encabezado */
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;text-decoration:none}
+  .logo-mark{width:36px;height:36px;border-radius:11px;background:var(--brand);display:grid;place-items:center;color:#fff;flex:none}
+  .nav-right{display:flex;align-items:center;gap:8px}
+  .lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.8rem;cursor:pointer;color:var(--ink)}
+  .nav .nav-call{display:none}
+  @media(min-width:720px){.nav .nav-call{display:inline-flex}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 22px;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--accent);color:#1A1A1A;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+  .btn-dark{background:var(--brand);color:#fff}
+  .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+  .btn-wa{background:#25D366;color:#073B1E}
+  .btn svg{width:20px;height:20px;flex:none}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;color:#fff;padding:64px 0 72px;background:
+    radial-gradient(900px 400px at 85% -10%,rgba(255,255,255,.18),transparent 60%),
+    linear-gradient(160deg,var(--brand),color-mix(in srgb,var(--brand) 70%,#000))}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(2rem,7vw,3.4rem);letter-spacing:-.02em;max-width:14ch}
+  .hero p.lead{font-size:clamp(1.05rem,3.2vw,1.25rem);opacity:.92;max-width:38ch;margin:16px 0 26px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:600;margin-bottom:18px}
+  .sparkles{position:absolute;inset:0;pointer-events:none;opacity:.5}
+  .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:.92rem;font-weight:600}
+  .trust span{display:inline-flex;align-items:center;gap:7px}
+  .trust svg{width:18px;height:18px;color:var(--accent)}
+
+  /* Servicios */
+  .grid{display:grid;gap:16px}
+  @media(min-width:640px){.grid-2{grid-template-columns:1fr 1fr}}
+  @media(min-width:900px){.grid-4{grid-template-columns:repeat(4,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:640px) and (max-width:899px){.grid-4{grid-template-columns:1fr 1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .icon{width:48px;height:48px;border-radius:14px;background:color-mix(in srgb,var(--brand) 12%,#fff);color:var(--brand);display:grid;place-items:center;margin-bottom:14px}
+  .icon svg{width:26px;height:26px}
+  .card h3{font-size:1.1rem;margin-bottom:6px}
+  .card p{margin:0;color:var(--muted);font-size:.95rem}
+  .head{margin-bottom:26px}
+  .head p{color:var(--muted);margin:8px 0 0;max-width:52ch}
+
+  /* Pasos */
+  .soft{background:var(--soft)}
+  .step-n{width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center;margin-bottom:12px}
+
+  /* Galería */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(min-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  .ph{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--soft);border:1px solid var(--line)}
+  .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .ph-fake{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:10px;color:var(--brand);font-size:.8rem;font-weight:600}
+  .ph-fake svg{width:34px;height:34px;opacity:.8}
+  .ph-tag{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+
+  /* Zonas */
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:6px}
+  .chip svg{width:15px;height:15px;color:var(--brand)}
+
+  /* Reseñas */
+  .review-ph{border:2px dashed var(--line);border-radius:var(--radius);padding:22px;color:var(--muted);text-align:center}
+  .stars{color:#F5A400;letter-spacing:2px;font-size:1.1rem}
+
+  /* Formulario */
+  .quote{display:grid;gap:28px;align-items:start}
+  @media(min-width:900px){.quote{grid-template-columns:1fr 1.1fr}}
+  form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 10px 30px rgba(20,33,31,.06)}
+  label{display:block;font-weight:600;font-size:.9rem;margin:0 0 6px}
+  .field{margin-bottom:14px}
+  input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 20%,transparent)}
+  .row2{display:grid;gap:14px}
+  @media(min-width:520px){.row2{grid-template-columns:1fr 1fr}}
+  form .btn{width:100%}
+  .ok{display:none;text-align:center;padding:26px 8px}
+  .ok .check{width:56px;height:56px;border-radius:50%;background:color-mix(in srgb,var(--brand) 14%,#fff);color:var(--brand);display:grid;place-items:center;margin:0 auto 12px}
+  .ok .check svg{width:30px;height:30px}
+  .note{font-size:.8rem;color:var(--muted);margin-top:10px;text-align:center}
+  .contact-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
+  .contact-list li{display:flex;gap:12px;align-items:center}
+  .contact-list .icon{margin:0;width:42px;height:42px}
+
+  footer{background:#0F1A19;color:#C9D6D4;padding:34px 0 110px;font-size:.9rem}
+  @media(min-width:720px){footer{padding-bottom:34px}}
+  footer b{color:#fff}
+
+  /* Barra fija en celular */
+  .mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.06)}
+  .mobile-bar .btn{padding:12px 6px;font-size:.88rem}
+  @media(min-width:720px){.mobile-bar{display:none}}
+
+  .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:#1E1E1E;color:#fff;padding:12px 18px;border-radius:12px;font-size:.9rem;opacity:0;transition:.25s;z-index:40;max-width:calc(100% - 32px);text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const N = NEGOCIO;
+  document.documentElement.style.setProperty('--brand', N.colorPrincipal);
+  document.documentElement.style.setProperty('--accent', N.colorAcento);
+
+  const ICON = {
+    casa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>',
+    brillo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>',
+    caja:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>',
+    edificio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10 21v-3h4v3"/></svg>',
+    tel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+    wa:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>',
+    check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
+    pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+    reloj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    foto:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg>'
+  };
+
+  const T = {
+    es:{
+      demo:'<b>DEMOSTRACIÓN</b> · Muestra preparada para '+N.nombre+'. No es el sitio oficial.',
+      call:'Llamar', wa:'WhatsApp', quote:'Cotizar',
+      pill:'Atendemos '+N.ciudad+' y alrededores',
+      h1:'Tu casa limpia, sin que tú muevas un dedo',
+      lead:'Limpieza de casas, oficinas y mudanzas en '+N.ciudad+'. Pide tu cotización gratis y te contestamos el mismo día.',
+      ctaQuote:'Cotización gratis', ctaWa:'Escríbenos por WhatsApp',
+      t1:N.aniosExperiencia+' años de experiencia', t2:'Con licencia y asegurados', t3:'Atendemos en español e inglés', t4:'Cotización sin compromiso',
+      servEy:'Servicios', servH:'¿Qué necesitas limpiar?', servP:'Elige el servicio y te mandamos el precio. Trabajamos con nuestros propios productos y equipo.',
+      stepsEy:'Así de fácil', stepsH:'Cómo funciona',
+      s1:['Pide tu cotización','Llena el formulario, llámanos o mándanos WhatsApp.'],
+      s2:['Te damos el precio','Te confirmamos precio y horario el mismo día.'],
+      s3:['Llegamos y limpiamos','Tú solo disfrutas tu espacio limpio.'],
+      galEy:'Nuestro trabajo', galH:'Antes y después', galP:'Fotos reales de casas y oficinas que hemos limpiado.',
+      phBefore:'Antes', phAfter:'Después', phTxt:'Aquí van las fotos reales de tus trabajos',
+      zonEy:'Zonas', zonH:'¿Dónde trabajamos?', zonP:'Si tu ciudad no aparece, pregúntanos: probablemente también llegamos.',
+      revEy:'Reseñas', revH:'Lo que dicen nuestros clientes', revPh:'Aquí aparecerán las reseñas reales de tus clientes (por ejemplo, las que ya tienes en Google).',
+      qEy:'Cotización gratis', qH:'Pide tu precio en 1 minuto', qP:'Déjanos tus datos y te contactamos hoy mismo. Sin compromiso.',
+      fName:'Nombre', fPhone:'Teléfono', fServ:'Servicio', fCity:'Ciudad o código postal', fMsg:'Cuéntanos más (opcional)',
+      fMsgPh:'Ej.: casa de 3 recámaras y 2 baños, cada 15 días', fPref:'¿Cómo prefieres que te contactemos?',
+      prefCall:'Llamada', prefWa:'WhatsApp', prefText:'Mensaje de texto', fSend:'Enviar solicitud', fPick:'Elige uno', fOther:'Otro',
+      okH:'¡Listo! Recibimos tu solicitud', okP:'Te contactamos hoy mismo.',
+      okDemo:'Esto es una demostración: en la versión real, esta solicitud le llega al correo del negocio.',
+      privacy:'Tus datos solo se usan para darte tu cotización.',
+      contactH:'¿Prefieres hablar directo?', hours:N.horario.es,
+      footer:'Limpieza de casas, oficinas y mudanzas.', rights:'Todos los derechos reservados.',
+      toastDemo:'Demostración: en la versión real este botón abre la llamada o el WhatsApp del negocio.',
+      langBtn:'EN', waMsg:'Hola, quiero una cotización de limpieza'
+    },
+    en:{
+      demo:'<b>DEMO</b> · Sample prepared for '+N.nombre+'. Not the official website.',
+      call:'Call', wa:'WhatsApp', quote:'Quote',
+      pill:'Serving '+N.ciudad+' and nearby areas',
+      h1:'A spotless home without lifting a finger',
+      lead:'House, office and move-out cleaning in '+N.ciudad+'. Get a free quote and hear back the same day.',
+      ctaQuote:'Free quote', ctaWa:'Message us on WhatsApp',
+      t1:N.aniosExperiencia+' years of experience', t2:'Licensed & insured', t3:'We speak English and Spanish', t4:'No-obligation quote',
+      servEy:'Services', servH:'What do you need cleaned?', servP:'Pick a service and we\'ll send you a price. We bring our own supplies and equipment.',
+      stepsEy:'Easy as 1-2-3', stepsH:'How it works',
+      s1:['Request a quote','Fill out the form, call us or send a WhatsApp.'],
+      s2:['Get your price','We confirm price and schedule the same day.'],
+      s3:['We clean','You just enjoy your clean space.'],
+      galEy:'Our work', galH:'Before & after', galP:'Real photos of homes and offices we have cleaned.',
+      phBefore:'Before', phAfter:'After', phTxt:'Your real job photos go here',
+      zonEy:'Service area', zonH:'Where we work', zonP:'Don\'t see your city? Ask us — we probably cover it.',
+      revEy:'Reviews', revH:'What our customers say', revPh:'Your real customer reviews will appear here (for example, the ones you already have on Google).',
+      qEy:'Free quote', qH:'Get your price in 1 minute', qP:'Leave your details and we\'ll contact you today. No obligation.',
+      fName:'Name', fPhone:'Phone', fServ:'Service', fCity:'City or ZIP code', fMsg:'Tell us more (optional)',
+      fMsgPh:'E.g. 3 bed / 2 bath house, every other week', fPref:'How should we contact you?',
+      prefCall:'Phone call', prefWa:'WhatsApp', prefText:'Text message', fSend:'Send request', fPick:'Choose one', fOther:'Other',
+      okH:'Done! We got your request', okP:'We\'ll contact you today.',
+      okDemo:'This is a demo: in the real version, this request goes to the business email.',
+      privacy:'Your information is only used to send you a quote.',
+      contactH:'Rather talk directly?', hours:N.horario.en,
+      footer:'House, office and move-out cleaning.', rights:'All rights reserved.',
+      toastDemo:'Demo: in the real version this button opens the business phone or WhatsApp.',
+      langBtn:'ES', waMsg:'Hi, I would like a cleaning quote'
+    }
+  };
+
+  let lang = 'es';
+  try{ const s = localStorage.getItem('demo-lang'); if(s==='en'||s==='es') lang=s; }catch(e){}
+
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+  function render(){
+    const t = T[lang];
+    document.documentElement.lang = lang;
+    document.title = N.nombre + (N.modoDemo ? (lang==='es'?' — Demostración':' — Demo') : '');
+    const waLink = 'https://wa.me/'+N.whatsapp+'?text='+encodeURIComponent(t.waMsg);
+    const telLink = 'tel:'+N.telefono;
+    const dataDemo = N.modoDemo ? ' data-demo="1"' : '';
+
+    const trust = [];
+    if(N.aniosExperiencia>0) trust.push(t.t1);
+    if(N.aseguradoYConLicencia) trust.push(t.t2);
+    trust.push(t.t3, t.t4);
+
+    const fotos = N.fotos.length ? N.fotos.map(src=>'<div class="ph"><img src="'+esc(src)+'" alt="" loading="lazy"></div>').join('')
+      : [0,1,2,3,4,5].map(i=>'<div class="ph"><span class="ph-tag">'+(i%2?t.phAfter:t.phBefore)+'</span><div class="ph-fake">'+ICON.foto+'<span>'+t.phTxt+'</span></div></div>').join('');
+
+    document.getElementById('app').innerHTML = `
+      ${N.modoDemo?`<div class="demo-bar">${t.demo}</div>`:''}
+      <header><div class="wrap nav">
+        <a class="logo" href="#inicio"><span class="logo-mark">${ICON.brillo}</span><span>${esc(N.nombre)}</span></a>
+        <div class="nav-right">
+          ${N.telefonoVisible?`<a class="btn btn-dark nav-call" style="padding:9px 16px;font-size:.9rem" href="${telLink}"${dataDemo}>${ICON.tel}${esc(N.telefonoVisible)}</a>`:''}
+          <button class="lang" id="langBtn" aria-label="Cambiar idioma / Change language">${t.langBtn}</button>
+        </div>
+      </div></header>
+
+      <section class="hero" id="inicio">
+        <svg class="sparkles" viewBox="0 0 400 300" preserveAspectRatio="xMaxYMin slice" aria-hidden="true">
+          <g fill="#fff"><path d="M330 40l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/><path d="M370 120l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" opacity=".7"/><path d="M290 150l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" opacity=".6"/><circle cx="250" cy="60" r="3" opacity=".6"/><circle cx="385" cy="210" r="4" opacity=".4"/></g>
+        </svg>
+        <div class="wrap">
+          <span class="pill">${ICON.pin.replace('<svg','<svg width="16" height="16"')}${esc(t.pill)}</span>
+          <h1>${t.h1}</h1>
+          <p class="lead">${t.lead}</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#cotizar">${t.ctaQuote}</a>
+            <a class="btn btn-ghost" href="${waLink}" target="_blank" rel="noopener"${dataDemo}>${ICON.wa}${t.ctaWa}</a>
+          </div>
+          <div class="trust">${trust.map(x=>`<span>${ICON.check}${esc(x)}</span>`).join('')}</div>
+        </div>
+      </section>
+
+      <section id="servicios"><div class="wrap">
+        <div class="head"><div class="eyebrow">${t.servEy}</div><h2>${t.servH}</h2><p>${t.servP}</p></div>
+        <div class="grid grid-4">${N.servicios.map(s=>`<div class="card"><div class="icon">${ICON[s.icono]||ICON.brillo}</div><h3>${esc(s[lang][0])}</h3><p>${esc(s[lang][1])}</p></div>`).join('')}</div>
+      </div></section>
+
+      <section class="soft"><div class="wrap">
+        <div class="head"><div class="eyebrow">${t.stepsEy}</div><h2>${t.stepsH}</h2></div>
+        <div class="grid grid-3">${[t.s1,t.s2,t.s3].map((s,i)=>`<div class="card"><div class="step-n">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('')}</div>
+      </div></section>
+
+      <section id="trabajos"><div class="wrap">
+        <div class="head"><div class="eyebrow">${t.galEy}</div><h2>${t.galH}</h2><p>${t.galP}</p></div>
+        <div class="gallery">${fotos}</div>
+      </div></section>
+
+      <section class="soft" id="zonas"><div class="wrap">
+        <div class="head"><div class="eyebrow">${t.zonEy}</div><h2>${t.zonH}</h2><p>${t.zonP}</p></div>
+        <div class="chips">${N.zonas.map(z=>`<span class="chip">${ICON.pin}${esc(z)}</span>`).join('')}</div>
+      </div></section>
+
+      <section id="resenas"><div class="wrap">
+        <div class="head"><div class="eyebrow">${t.revEy}</div><h2>${t.revH}</h2></div>
+        <div class="review-ph"><div class="stars">★★★★★</div><p style="margin:8px 0 0">${t.revPh}</p></div>
+      </div></section>
+
+      <section class="soft" id="cotizar"><div class="wrap quote">
+        <div>
+          <div class="eyebrow">${t.qEy}</div><h2>${t.qH}</h2>
+          <p style="color:var(--muted);margin:10px 0 0">${t.qP}</p>
+          <h3 style="margin-top:28px;font-size:1.05rem">${t.contactH}</h3>
+          <ul class="contact-list">
+            ${N.telefonoVisible?`<li><span class="icon">${ICON.tel}</span><a href="${telLink}"${dataDemo}><b>${esc(N.telefonoVisible)}</b></a></li>`:''}
+            <li><span class="icon">${ICON.wa}</span><a href="${waLink}" target="_blank" rel="noopener"${dataDemo}><b>WhatsApp</b></a></li>
+            ${N.correo?`<li><span class="icon">${ICON.mail}</span><span>${esc(N.correo)}</span></li>`:''}
+            <li><span class="icon">${ICON.reloj}</span><span>${esc(t.hours)}</span></li>
+          </ul>
+        </div>
+        <form id="qform" novalidate>
+          <div class="form-body">
+            <div class="row2">
+              <div class="field"><label for="f-name">${t.fName}</label><input id="f-name" name="nombre" required autocomplete="name"></div>
+              <div class="field"><label for="f-phone">${t.fPhone}</label><input id="f-phone" name="telefono" type="tel" required autocomplete="tel" inputmode="tel"></div>
+            </div>
+            <div class="row2">
+              <div class="field"><label for="f-serv">${t.fServ}</label>
+                <select id="f-serv" name="servicio" required><option value="">${t.fPick}</option>${N.servicios.map(s=>`<option>${esc(s[lang][0])}</option>`).join('')}<option>${t.fOther}</option></select></div>
+              <div class="field"><label for="f-city">${t.fCity}</label><input id="f-city" name="ciudad" autocomplete="postal-code"></div>
+            </div>
+            <div class="field"><label for="f-msg">${t.fMsg}</label><textarea id="f-msg" name="mensaje" rows="3" placeholder="${esc(t.fMsgPh)}"></textarea></div>
+            <div class="field"><label for="f-pref">${t.fPref}</label>
+              <select id="f-pref" name="contacto"><option>${t.prefWa}</option><option>${t.prefCall}</option><option>${t.prefText}</option></select></div>
+            <button class="btn btn-dark" type="submit">${t.fSend}</button>
+            <p class="note">${t.privacy}</p>
+          </div>
+          <div class="ok" id="ok"><div class="check">${ICON.check}</div><h3>${t.okH}</h3><p style="color:var(--muted);margin:6px 0 0">${t.okP}</p>
+            ${N.modoDemo?`<p class="note" style="margin-top:14px">${t.okDemo}</p>`:''}</div>
+        </form>
+      </div></section>
+
+      <footer><div class="wrap">
+        <b>${esc(N.nombre)}</b> · ${t.footer}<br>${[N.ciudad,N.telefonoVisible,N.correo].filter(Boolean).map(esc).join(' · ')}<br>
+        <span style="opacity:.7">© ${new Date().getFullYear()} ${esc(N.nombre)}. ${t.rights}</span>
+      </div></footer>
+
+      <nav class="mobile-bar" aria-label="Contacto rápido">
+        <a class="btn btn-dark" href="${telLink}"${dataDemo}>${ICON.tel}${t.call}</a>
+        <a class="btn btn-wa" href="${waLink}" target="_blank" rel="noopener"${dataDemo}>${ICON.wa}${t.wa}</a>
+        <a class="btn btn-primary" href="#cotizar">${t.quote}</a>
+      </nav>`;
+    bind();
+  }
+
+  let toastTimer;
+  function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3200)}
+
+  function bind(){
+    document.getElementById('langBtn').onclick=()=>{lang=lang==='es'?'en':'es';try{localStorage.setItem('demo-lang',lang)}catch(e){}render()};
+    document.querySelectorAll('[data-demo]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();toast(T[lang].toastDemo)}));
+    const f=document.getElementById('qform');
+    f.addEventListener('submit',async e=>{
+      e.preventDefault();
+      let bad=null;
+      f.querySelectorAll('[required]').forEach(el=>{const v=!!el.value.trim();el.style.borderColor=v?'':'#D14343';if(!v&&!bad)bad=el});
+      if(bad){bad.focus();return}
+      const btn=f.querySelector('button[type=submit]');btn.disabled=true;
+      if(!N.modoDemo && N.formulario){
+        try{const r=await fetch(N.formulario,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(!r.ok)throw 0}
+        catch(err){btn.disabled=false;toast(lang==='es'?'No se pudo enviar. Llámanos o escríbenos por WhatsApp.':'Could not send. Please call or WhatsApp us.');return}
+      }
+      f.querySelector('.form-body').style.display='none';
+      document.getElementById('ok').style.display='block';
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
